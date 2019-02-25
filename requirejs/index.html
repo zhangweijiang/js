@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="./require.js"></script>
+        <script type="text/javascript">
+
+            require.config({
+                paths : {
+                    "jquery" : ["http://libs.baidu.com/jquery/2.0.3/jquery","jquery"]   
+                }
+            });
+            require(["jquery","a"],function($,a){
+                alert($('span').html());
+                alert(a.a);
+                alert(a.t);
+                alert(a.t1);
+                a.t2();
+                $(function(){
+                    //alert("load finished");  
+                });
+            });
+
+            requirejs.config({             
+                shim:{  
+                   b:{  
+                       deps:[],  
+                       exports: 'b',                         
+                    }  
+                }  
+            });
+             require(["b"],function(b){
+               b.test();
+            });
+  
+
+           
+           
+        </script>
+    </head>
+    <body>
+      <span onclick="test()">body</span>
+      <script>
+       function test(){
+        alert(a.b);
+       }
+      </script>
+    </body>
+</html>
