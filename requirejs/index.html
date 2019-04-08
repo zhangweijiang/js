@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript" src="./require.js"></script>
+        <div id="tts"></div>
         <script type="text/javascript">
 
             require.config({
@@ -10,15 +12,24 @@
                 }
             });
             require(["jquery","a"],function($,a){
+                
                 alert($('span').html());
                 alert(a.a);
                 alert(a.t);
                 alert(a.t1);
-                a.t2();
+                a['t2']();
+                // a.t2();
                 $(function(){
                     //alert("load finished");  
                 });
             });
+             /*require(["jquery","a"],function($,a){
+                alert(t5);
+         
+                $(function(){
+                    //alert("load finished");  
+                });
+            });*/
 
             requirejs.config({             
                 shim:{  
@@ -30,19 +41,63 @@
             });
              require(["b"],function(b){
                b.test();
+               $('#tt').alertWhileClick();
+
             });
   
-
+       
            
            
         </script>
     </head>
     <body>
-      <span onclick="test()">body</span>
+      <span onclick="test()" id="span1">body</span>
+     
       <script>
        function test(){
         alert(a.b);
        }
+        var upload = {
+            b:'upload',
+            a:function(){
+                alert(upload.b);
+            }
+        }
+        upload.a();
+        console.log($('#span1'));
+
+      
+      
+
+  
+$.extend({
+    min: function(a, b) {
+        return a < b ? a : b;
+    },
+    max: function(a, b) {
+        return a > b ? a : b;
+    },
+    c:13
+});
+alert($.min(3,4));
+alert($.c);
+      </script>
+      <div id="test" data-id="1" data-url="www.baidu.com"></div>
+      <script>
+        console.log($('#test').data());
+      function t(a){
+        a('callback');
+      }
+      t(function(a){alert(a)});
+      </script>
+      <div class="test"><span>3</span></div>
+      <div class="test"><span>4</span></div>
+      <script>
+        $('.test').click(function(){
+        console.log($(this));
+            var a =$(this).find('span').html();
+            alert(a);
+        });
       </script>
     </body>
 </html>
