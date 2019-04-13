@@ -12,16 +12,17 @@
                 }
             });
             require(["jquery","a"],function($,a){
-                
-                alert($('span').html());
+                a.a='aa';
+                require(['a'],function(aa){
+                    alert(aa.a);
+                    console.log(aa);
+                });
+                /*alert($('span').html());
                 alert(a.a);
                 alert(a.t);
                 alert(a.t1);
-                a['t2']();
-                // a.t2();
-                $(function(){
-                    //alert("load finished");  
-                });
+                a['t2']();*/
+               
             });
              /*require(["jquery","a"],function($,a){
                 alert(t5);
@@ -40,8 +41,8 @@
                 }  
             });
              require(["b"],function(b){
-               b.test();
-               $('#tt').alertWhileClick();
+               //b.test();
+               //$('#tt').alertWhileClick();
 
             });
   
@@ -51,10 +52,10 @@
         </script>
     </head>
     <body>
-      <span onclick="test()" id="span1">body</span>
+      <span onclick="test()" id="span1" title='3'>body</span>
      
       <script>
-       function test(){
+       /*function test(){
         alert(a.b);
        }
         var upload = {
@@ -80,24 +81,26 @@ $.extend({
     c:13
 });
 alert($.min(3,4));
-alert($.c);
+alert($.c);*/
       </script>
       <div id="test" data-id="1" data-url="www.baidu.com"></div>
       <script>
+      /*console.log($('#test'));
+      console.log($('#test')[0]);
         console.log($('#test').data());
       function t(a){
         a('callback');
       }
-      t(function(a){alert(a)});
+      t(function(a){alert(a)});*/
       </script>
       <div class="test"><span>3</span></div>
       <div class="test"><span>4</span></div>
       <script>
-        $('.test').click(function(){
+        /*$('.test').click(function(){
         console.log($(this));
             var a =$(this).find('span').html();
             alert(a);
-        });
+        });*/
       </script>
     </body>
 </html>
